@@ -194,7 +194,7 @@ namespace FretMate.Forms
                         {
                             SizeF tsize = e.Graphics.MeasureString(f.IntervalLabel, intFnt);
                             int xt = x - this.pnlBoard.Width / 23 / 2 - 12;
-                            xt = xt - (int)tsize.Width + 2;
+                            xt = xt - (int)tsize.Width + 3;
                             int yt = y - (int)fheight;
                             yt = yt - (int)tsize.Height / 2;
                             e.Graphics.DrawString(f.IntervalLabel, intFnt, Brushes.Black, xt, yt);
