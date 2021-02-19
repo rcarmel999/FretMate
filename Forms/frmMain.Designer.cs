@@ -51,7 +51,7 @@
             this.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButton1.Name = "ToolStripButton1";
             this.ToolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.ToolStripButton1.Text = "ToolStripButton1";
+            this.ToolStripButton1.Text = "New";
             this.ToolStripButton1.Click += new System.EventHandler(this.cmdNew_Click);
             // 
             // frmMain
