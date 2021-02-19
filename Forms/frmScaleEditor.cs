@@ -103,6 +103,13 @@ namespace FretMate.Forms
             {
                 this.lstRoot.SelectedIndex = 0;
             }
+
+            if (this.lstCategory.SelectedIndex == -1)
+                return;
+
+            if (this.lstScales.SelectedIndex == -1)
+                return;
+
             // If Me.m_currentForm IsNot Nothing Then
             // Me.m_currentForm.Scales.Clear()
             Scale ss = lstScales.SelectedItem as Scale;
