@@ -129,7 +129,7 @@ namespace FretMate.Forms
         {
             const int NUM_FRETS = 23;
             const int NUM_STRINGS = 6;
-                        
+
             var p = new Point(0, 0);
             e.Graphics.DrawImage(m_img, 0, 0, this.pnlBoard.Width, this.pnlBoard.Height);
 
@@ -155,7 +155,7 @@ namespace FretMate.Forms
             // Draw horozontal lines
             pp.Color = Color.LightGray;
             pp.Width = 2;
-            y = this.pnlBoard.Height / 6 / 2;
+            y = this.pnlBoard.Height / NUM_STRINGS / 2;
             x = this.pnlBoard.Width / NUM_FRETS;
             for (int i = 0; i < NUM_STRINGS; i++)
             {
@@ -164,8 +164,22 @@ namespace FretMate.Forms
             }
 
             pp.Dispose();
+
+            // Draw special fret markers
+            DrawSpecialFretMarkers(e, NUM_FRETS, 3);
+            DrawSpecialFretMarkers(e, NUM_FRETS, 5);
+            DrawSpecialFretMarkers(e, NUM_FRETS, 7);
+            DrawSpecialFretMarkers(e, NUM_FRETS, 9);
+            DrawSpecialFretMarkers(e, NUM_FRETS, 12);
+            DrawSpecialFretMarkers(e, NUM_FRETS, 15);
+            DrawSpecialFretMarkers(e, NUM_FRETS, 17);
+            DrawSpecialFretMarkers(e, NUM_FRETS, 19);
+            DrawSpecialFretMarkers(e, NUM_FRETS, 21);
+
             y = 0;
             System.Drawing.Font fnt = this.pnlBoard.Font;
+
+
             System.Drawing.Font intFnt = new Font(this.pnlBoard.Font.FontFamily, 8, FontStyle.Italic);
 
 
@@ -185,25 +199,26 @@ namespace FretMate.Forms
                         SizeF size = e.Graphics.MeasureString(value, fnt);
                         int l = (int)size.Width / 2;
                         var fheight = size.Height / 2;
-                        var b = new SolidBrush(f.Color);
-                        e.Graphics.FillEllipse(b, new Rectangle(x - this.pnlBoard.Width / NUM_FRETS / 2 - 12, y - 12, 24, 24));
-                        if (f.Color != Color.Transparent)
+                        using (var b = new SolidBrush(f.Color))
                         {
-                            e.Graphics.DrawEllipse(Pens.Black, new Rectangle(x - this.pnlBoard.Width / NUM_FRETS / 2 - 12, y - 12, 24, 24));
+                            e.Graphics.FillEllipse(b, new Rectangle(x - this.pnlBoard.Width / NUM_FRETS / 2 - 12, y - 12, 24, 24));
+                            if (f.Color != Color.Transparent)
+                            {
+                                e.Graphics.DrawEllipse(Pens.Black, new Rectangle(x - this.pnlBoard.Width / NUM_FRETS / 2 - 12, y - 12, 24, 24));
+                            }
+
+                            e.Graphics.DrawString(f.Note.ToString(), fnt, Brushes.Black, x - this.pnlBoard.Width / NUM_FRETS / 2 - l, y - fheight);
+                            if (f.IntervalLabel != string.Empty)
+                            {
+                                SizeF tsize = e.Graphics.MeasureString(f.IntervalLabel, intFnt);
+                                int xt = x - this.pnlBoard.Width / NUM_FRETS / 2 - 12;
+                                xt = xt - (int)tsize.Width + 1;
+                                int yt = y - (int)fheight;
+                                yt = yt - (int)tsize.Height / 2;
+                                e.Graphics.DrawString(f.IntervalLabel, intFnt, Brushes.Black, xt, yt);
+                            }
                         }
 
-                        e.Graphics.DrawString(f.Note.ToString(), fnt, Brushes.Black, x - this.pnlBoard.Width / NUM_FRETS / 2 - l, y - fheight);
-                        if (f.IntervalLabel != string.Empty)
-                        {
-                            SizeF tsize = e.Graphics.MeasureString(f.IntervalLabel, intFnt);
-                            int xt = x - this.pnlBoard.Width / NUM_FRETS / 2 - 12;
-                            xt = xt - (int)tsize.Width + 1;
-                            int yt = y - (int)fheight;
-                            yt = yt - (int)tsize.Height / 2;
-                            e.Graphics.DrawString(f.IntervalLabel, intFnt, Brushes.Black, xt, yt);
-                        }
-
-                        b.Dispose();
                     }
 
                     x += this.pnlBoard.Width / NUM_FRETS;
@@ -213,6 +228,32 @@ namespace FretMate.Forms
             }
 
             intFnt.Dispose();
+        }
+
+        private void DrawSpecialFretMarkers(PaintEventArgs e, int NUM_FRETS,  int markerNumber)
+        {
+            int x, y;
+
+            y = pnlBoard.Height / 2;
+            x = pnlBoard.Width / NUM_FRETS;
+
+            const int markerWidth = 10;
+            const int markerHeight = 10;
+
+            int fret3 = x * markerNumber + ((x / 2));
+
+            using (var specialBrush = new SolidBrush(Color.White))
+            {
+                if (markerNumber == 12)
+                {
+                    y = this.pnlBoard.Height / 3;
+                    e.Graphics.FillEllipse(specialBrush, new Rectangle { Width = markerWidth, Height = markerHeight, X = fret3 - (markerWidth / 2), Y = y - (markerHeight / 2) });
+                    y = this.pnlBoard.Height / 3 * 2;
+                    e.Graphics.FillEllipse(specialBrush, new Rectangle { Width = markerWidth, Height = markerHeight, X = fret3 - (markerWidth / 2), Y = y - (markerHeight / 2) });
+                }
+                else
+                    e.Graphics.FillEllipse(specialBrush, new Rectangle { Width = markerWidth, Height = markerHeight, X = fret3 - (markerWidth / 2), Y = y - (markerHeight / 2) });
+            }
         }
 
         private void frmFretBoard_Activated(object sender, EventArgs e)
