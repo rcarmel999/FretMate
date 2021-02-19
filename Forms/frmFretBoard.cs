@@ -127,17 +127,20 @@ namespace FretMate.Forms
 
         private void pnlBoard_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
-            // var rm = new System.Resources.ResourceManager("RNC.Fretboard.Resources", Assembly.GetExecutingAssembly());
-            //  rm.GetObject("wood_2");
+            const int NUM_FRETS = 23;
+            const int NUM_STRINGS = 6;
+                        
             var p = new Point(0, 0);
             e.Graphics.DrawImage(m_img, 0, 0, this.pnlBoard.Width, this.pnlBoard.Height);
+
+
             int x = 0;
             int y = 0;
 
-            // Draw Frets?
+            // Draw Frets
             var pp = new Pen(Color.Gray);
-            x = this.pnlBoard.Width / 23;
-            for (int j = 0; j <= 22; j++)
+            x = this.pnlBoard.Width / NUM_FRETS;
+            for (int j = 0; j < NUM_FRETS; j++)
             {
                 pp.Color = Color.Gray;
                 pp.Width = 2;
@@ -145,7 +148,7 @@ namespace FretMate.Forms
                 pp.Width = 1;
                 pp.Color = Color.White;
                 e.Graphics.DrawLine(pp, x, 0, x, this.pnlBoard.Height);
-                x += this.pnlBoard.Width / 23;
+                x += this.pnlBoard.Width / NUM_FRETS;
             }
 
 
@@ -153,11 +156,11 @@ namespace FretMate.Forms
             pp.Color = Color.LightGray;
             pp.Width = 2;
             y = this.pnlBoard.Height / 6 / 2;
-            x = this.pnlBoard.Width / 23;
-            for (int i = 0; i <= 5; i++)
+            x = this.pnlBoard.Width / NUM_FRETS;
+            for (int i = 0; i < NUM_STRINGS; i++)
             {
                 e.Graphics.DrawLine(pp, x, y, this.pnlBoard.Width, y);
-                y += this.pnlBoard.Height / 6;
+                y += this.pnlBoard.Height / NUM_STRINGS;
             }
 
             pp.Dispose();
@@ -168,12 +171,12 @@ namespace FretMate.Forms
 
 
 
-            // Draw notes?
-            y = this.pnlBoard.Height / 6 / 2;
-            for (int i = 0; i <= 5; i++)
+            // Draw notes
+            y = this.pnlBoard.Height / NUM_STRINGS / 2;
+            for (int i = 0; i < NUM_STRINGS; i++)
             {
-                x = this.pnlBoard.Width / 23;
-                for (int j = 0; j <= 22; j++)
+                x = this.pnlBoard.Width / NUM_FRETS;
+                for (int j = 0; j < NUM_FRETS; j++)
                 {
                     Fret f = m_board.Board[i][j];
                     if (f.Visible & j >= m_startFret & j <= m_endFret)
@@ -183,18 +186,18 @@ namespace FretMate.Forms
                         int l = (int)size.Width / 2;
                         var fheight = size.Height / 2;
                         var b = new SolidBrush(f.Color);
-                        e.Graphics.FillEllipse(b, new Rectangle(x - this.pnlBoard.Width / 23 / 2 - 12, y - 12, 24, 24));
+                        e.Graphics.FillEllipse(b, new Rectangle(x - this.pnlBoard.Width / NUM_FRETS / 2 - 12, y - 12, 24, 24));
                         if (f.Color != Color.Transparent)
                         {
-                            e.Graphics.DrawEllipse(Pens.Black, new Rectangle(x - this.pnlBoard.Width / 23 / 2 - 12, y - 12, 24, 24));
+                            e.Graphics.DrawEllipse(Pens.Black, new Rectangle(x - this.pnlBoard.Width / NUM_FRETS / 2 - 12, y - 12, 24, 24));
                         }
 
-                        e.Graphics.DrawString(f.Note.ToString(), fnt, Brushes.Black, x - this.pnlBoard.Width / 23 / 2 - l, y - fheight);
+                        e.Graphics.DrawString(f.Note.ToString(), fnt, Brushes.Black, x - this.pnlBoard.Width / NUM_FRETS / 2 - l, y - fheight);
                         if (f.IntervalLabel != string.Empty)
                         {
                             SizeF tsize = e.Graphics.MeasureString(f.IntervalLabel, intFnt);
-                            int xt = x - this.pnlBoard.Width / 23 / 2 - 12;
-                            xt = xt - (int)tsize.Width + 3;
+                            int xt = x - this.pnlBoard.Width / NUM_FRETS / 2 - 12;
+                            xt = xt - (int)tsize.Width + 1;
                             int yt = y - (int)fheight;
                             yt = yt - (int)tsize.Height / 2;
                             e.Graphics.DrawString(f.IntervalLabel, intFnt, Brushes.Black, xt, yt);
@@ -203,10 +206,10 @@ namespace FretMate.Forms
                         b.Dispose();
                     }
 
-                    x += this.pnlBoard.Width / 23;
+                    x += this.pnlBoard.Width / NUM_FRETS;
                 }
 
-                y += this.pnlBoard.Height / 6;
+                y += this.pnlBoard.Height / NUM_STRINGS;
             }
 
             intFnt.Dispose();

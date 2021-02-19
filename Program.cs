@@ -18,17 +18,11 @@ namespace FretMate
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            try
-            {
-                frmMain f = new frmMain();
+          
+            frmMain f = new frmMain();
 
-                Application.Run(f);
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+            Application.Run(f);
+           
             
         }
     }
