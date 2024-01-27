@@ -37,7 +37,7 @@
   </SCALE>
 
   <SCALE>
-    <CATEGORY>Major Scales</CATEGORY>
+    <CATEGORY>Diatonic Scales</CATEGORY>
     <NAME>Ionian</NAME>
     <INTERVALS>1,2,3,4,5,6,7</INTERVALS>
     <BLUE_NOTES></BLUE_NOTES>
@@ -46,7 +46,7 @@
 
 
   <SCALE>
-    <CATEGORY>Major Scales</CATEGORY>
+    <CATEGORY>Diatonic Scales</CATEGORY>
     <NAME>Dorian</NAME>
     <INTERVALS>1,2,3b,4,5,6,7b</INTERVALS>
     <BLUE_NOTES></BLUE_NOTES>
@@ -54,7 +54,7 @@
   </SCALE>
 
   <SCALE>
-    <CATEGORY>Major Scales</CATEGORY>
+    <CATEGORY>Diatonic Scales</CATEGORY>
     <NAME>Phrygian</NAME>
     <INTERVALS>1,2b,3b,4,5,6b,7b</INTERVALS>
     <BLUE_NOTES></BLUE_NOTES>
@@ -62,7 +62,7 @@
   </SCALE>
 
   <SCALE>
-    <CATEGORY>Major Scales</CATEGORY>
+    <CATEGORY>Diatonic Scales</CATEGORY>
     <NAME>Lydian</NAME>
     <INTERVALS>1,2,3,5b,5,6,7</INTERVALS>
     <BLUE_NOTES></BLUE_NOTES>
@@ -70,7 +70,7 @@
   </SCALE>
 
   <SCALE>
-    <CATEGORY>Major Scales</CATEGORY>
+    <CATEGORY>Diatonic Scales</CATEGORY>
     <NAME>Mixolydian</NAME>
     <INTERVALS>1,2,3,4,5,6,7b</INTERVALS>
     <BLUE_NOTES></BLUE_NOTES>
@@ -78,7 +78,7 @@
   </SCALE>
 
   <SCALE>
-    <CATEGORY>Major Scales</CATEGORY>
+    <CATEGORY>Diatonic Scales</CATEGORY>
     <NAME>Aeolian</NAME>
     <INTERVALS>1,2,3b,4,5,6b,7b</INTERVALS>
     <BLUE_NOTES></BLUE_NOTES>
@@ -86,7 +86,7 @@
   </SCALE>
   
     <SCALE>
-    <CATEGORY>Major Scales</CATEGORY>
+    <CATEGORY>Diatonic Scales</CATEGORY>
     <NAME>Locrian</NAME>
     <INTERVALS>1,2b,3b,4,5b,6b,7b</INTERVALS>
     <BLUE_NOTES></BLUE_NOTES>
@@ -156,6 +156,15 @@
     <INTERVALS>1,3,5,7b</INTERVALS>
   </CHORD>
 
+  <CHORD>
+    <NAME>Sus2</NAME>
+    <INTERVALS>1,2,5</INTERVALS>
+  </CHORD>
+  
+  <CHORD>
+    <NAME>Sus4</NAME>
+    <INTERVALS>1,4,5</INTERVALS>
+  </CHORD>
 
   <CHORD>
     <NAME>9</NAME>
@@ -183,6 +192,15 @@
     <INTERVALS>1,3b,5b</INTERVALS>
   </CHORD>
   
+  <CHORD>
+    <NAME>Half Diminished 7</NAME>
+    <INTERVALS>1,3b,5b,7b</INTERVALS>
+  </CHORD>
+  
+  <CHORD>
+    <NAME>6</NAME>
+    <INTERVALS>1,3,5,6</INTERVALS>
+  </CHORD>
 </SCALES>
 
 

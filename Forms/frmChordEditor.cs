@@ -153,6 +153,17 @@ namespace FretMate.Forms
             SetColor(sender);
         }
 
-       
+        private void cmdSetAllColor_Click(object sender, EventArgs e)
+        {
+            SetColor(sender);
+            var b = sender as Button;
+            var c = b.BackColor;
+            cmdRoot.BackColor = c;
+            cmd3rd.BackColor = c;
+            cmd5th.BackColor = c;
+            cmd7th.BackColor = c;
+            cmd9th.BackColor = c;
+            cmd13th.BackColor = c;
+        }
     }
 }

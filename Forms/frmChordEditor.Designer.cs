@@ -46,6 +46,13 @@
             this.lstChords = new System.Windows.Forms.ListBox();
             this.lstChordRoot = new System.Windows.Forms.ListBox();
             this.lstChordType = new System.Windows.Forms.ListBox();
+            this.chkRoot = new System.Windows.Forms.CheckBox();
+            this.chk3rd = new System.Windows.Forms.CheckBox();
+            this.chk5th = new System.Windows.Forms.CheckBox();
+            this.chk7th = new System.Windows.Forms.CheckBox();
+            this.chk9th = new System.Windows.Forms.CheckBox();
+            this.chk13th = new System.Windows.Forms.CheckBox();
+            this.cmdSetAllColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Label6
@@ -164,7 +171,7 @@
             // 
             // cmdRemove
             // 
-            this.cmdRemove.Location = new System.Drawing.Point(190, 148);
+            this.cmdRemove.Location = new System.Drawing.Point(245, 149);
             this.cmdRemove.Name = "cmdRemove";
             this.cmdRemove.Size = new System.Drawing.Size(42, 23);
             this.cmdRemove.TabIndex = 39;
@@ -174,7 +181,7 @@
             // 
             // cmdAdd
             // 
-            this.cmdAdd.Location = new System.Drawing.Point(190, 13);
+            this.cmdAdd.Location = new System.Drawing.Point(245, 12);
             this.cmdAdd.Name = "cmdAdd";
             this.cmdAdd.Size = new System.Drawing.Size(42, 23);
             this.cmdAdd.TabIndex = 38;
@@ -185,7 +192,7 @@
             // lstChords
             // 
             this.lstChords.FormattingEnabled = true;
-            this.lstChords.Location = new System.Drawing.Point(238, 12);
+            this.lstChords.Location = new System.Drawing.Point(293, 13);
             this.lstChords.Name = "lstChords";
             this.lstChords.Size = new System.Drawing.Size(166, 160);
             this.lstChords.TabIndex = 37;
@@ -221,11 +228,94 @@
             this.lstChordType.TabIndex = 35;
             this.lstChordType.DoubleClick += new System.EventHandler(this.lstChordType_DoubleClick);
             // 
+            // chkRoot
+            // 
+            this.chkRoot.AutoSize = true;
+            this.chkRoot.Checked = true;
+            this.chkRoot.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkRoot.Location = new System.Drawing.Point(238, 46);
+            this.chkRoot.Name = "chkRoot";
+            this.chkRoot.Size = new System.Drawing.Size(15, 14);
+            this.chkRoot.TabIndex = 52;
+            this.chkRoot.UseVisualStyleBackColor = true;
+            // 
+            // chk3rd
+            // 
+            this.chk3rd.AutoSize = true;
+            this.chk3rd.Checked = true;
+            this.chk3rd.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk3rd.Location = new System.Drawing.Point(238, 63);
+            this.chk3rd.Name = "chk3rd";
+            this.chk3rd.Size = new System.Drawing.Size(15, 14);
+            this.chk3rd.TabIndex = 53;
+            this.chk3rd.UseVisualStyleBackColor = true;
+            // 
+            // chk5th
+            // 
+            this.chk5th.AutoSize = true;
+            this.chk5th.Checked = true;
+            this.chk5th.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk5th.Location = new System.Drawing.Point(238, 80);
+            this.chk5th.Name = "chk5th";
+            this.chk5th.Size = new System.Drawing.Size(15, 14);
+            this.chk5th.TabIndex = 54;
+            this.chk5th.UseVisualStyleBackColor = true;
+            // 
+            // chk7th
+            // 
+            this.chk7th.AutoSize = true;
+            this.chk7th.Checked = true;
+            this.chk7th.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk7th.Location = new System.Drawing.Point(238, 96);
+            this.chk7th.Name = "chk7th";
+            this.chk7th.Size = new System.Drawing.Size(15, 14);
+            this.chk7th.TabIndex = 55;
+            this.chk7th.UseVisualStyleBackColor = true;
+            // 
+            // chk9th
+            // 
+            this.chk9th.AutoSize = true;
+            this.chk9th.Checked = true;
+            this.chk9th.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk9th.Location = new System.Drawing.Point(238, 112);
+            this.chk9th.Name = "chk9th";
+            this.chk9th.Size = new System.Drawing.Size(15, 14);
+            this.chk9th.TabIndex = 56;
+            this.chk9th.UseVisualStyleBackColor = true;
+            // 
+            // chk13th
+            // 
+            this.chk13th.AutoSize = true;
+            this.chk13th.Checked = true;
+            this.chk13th.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk13th.Location = new System.Drawing.Point(238, 129);
+            this.chk13th.Name = "chk13th";
+            this.chk13th.Size = new System.Drawing.Size(15, 14);
+            this.chk13th.TabIndex = 57;
+            this.chk13th.UseVisualStyleBackColor = true;
+            // 
+            // cmdSetAllColor
+            // 
+            this.cmdSetAllColor.BackColor = System.Drawing.Color.Yellow;
+            this.cmdSetAllColor.Location = new System.Drawing.Point(199, 12);
+            this.cmdSetAllColor.Name = "cmdSetAllColor";
+            this.cmdSetAllColor.Size = new System.Drawing.Size(33, 24);
+            this.cmdSetAllColor.TabIndex = 58;
+            this.cmdSetAllColor.UseVisualStyleBackColor = false;
+            this.cmdSetAllColor.Click += new System.EventHandler(this.cmdSetAllColor_Click);
+            // 
             // frmChordEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 177);
+            this.ClientSize = new System.Drawing.Size(471, 197);
+            this.Controls.Add(this.cmdSetAllColor);
+            this.Controls.Add(this.chk13th);
+            this.Controls.Add(this.chk9th);
+            this.Controls.Add(this.chk7th);
+            this.Controls.Add(this.chk5th);
+            this.Controls.Add(this.chk3rd);
+            this.Controls.Add(this.chkRoot);
             this.Controls.Add(this.Label6);
             this.Controls.Add(this.cmd13th);
             this.Controls.Add(this.Label5);
@@ -272,5 +362,12 @@
         internal System.Windows.Forms.ListBox lstChords;
         internal System.Windows.Forms.ListBox lstChordRoot;
         internal System.Windows.Forms.ListBox lstChordType;
+        private System.Windows.Forms.CheckBox chkRoot;
+        private System.Windows.Forms.CheckBox chk3rd;
+        private System.Windows.Forms.CheckBox chk5th;
+        private System.Windows.Forms.CheckBox chk7th;
+        private System.Windows.Forms.CheckBox chk9th;
+        private System.Windows.Forms.CheckBox chk13th;
+        internal System.Windows.Forms.Button cmdSetAllColor;
     }
 }
